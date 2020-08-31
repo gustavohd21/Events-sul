@@ -10,6 +10,7 @@ class SplashRouter(private val activity: SplashActivity) : SplashContract.Router
      val mainActivity = MainActivity()
 
     override fun openMain() {
+        mainActivity.launch(activity)
         activity.finish()
     }
 }
