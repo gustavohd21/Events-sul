@@ -4,12 +4,15 @@ import com.gustavo.eventssul.app.app.home.HomeInteractor
 import com.gustavo.eventssul.app.app.home.data.HomeRepository
 import com.gustavo.eventssul.app.app.model.Events
 import com.nhaarman.mockitokotlin2.*
-import kotlinx.coroutines.runBlocking
+import io.reactivex.Single
 import org.junit.Test
 
 class HomeInteractorTest {
+
+    private val listEvents = mock<Single<Events>>()
+
     private var homeRepository = mock<HomeRepository>().stub {
-        doReturn(emptyList<Events>()).whenever(it).getEvents()
+        doReturn(listEvents).whenever(it).getEvents()
     }
 
     private val interactor = spy(HomeInteractor(homeRepository)) {
@@ -17,12 +20,14 @@ class HomeInteractorTest {
     }
 
     @Test
-    fun `getEvents() with empty list should call presenterOutput`() = runBlocking  {
+    fun `getEvents() with empty list should call presenterOutput`()   {
+        //give
+       val onSuccess: (List<Events>) -> Unit = { list -> Unit }
+       val onError: (Throwable) -> Unit = {thr -> Unit}
         // when
-       // interactor.getEvents()
+        interactor.getEvents(onSuccess, onError)
 
-        // then
-        Unit
+        verify(homeRepository).getEvents()
     }
 
 }
