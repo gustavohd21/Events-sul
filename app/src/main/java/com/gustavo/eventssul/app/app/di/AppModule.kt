@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class AppModule {
 
     companion object {
-        private const val SERVER_URL = "http://5b840ba5db24a100142dcd8c.mockapi.io/api/events"
+        private const val SERVER_URL = "http://5b840ba5db24a100142dcd8c.mockapi.io/"
     }
 
     @Provides

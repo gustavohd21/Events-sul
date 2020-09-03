@@ -11,8 +11,8 @@ data class Events(
     @SerializedName("date") var date: Long? = null,
     @SerializedName("description") var description: String? = null,
     @SerializedName("image") var image: String? = null,
-    @SerializedName("longitude") var longitude: Long? = null,
-    @SerializedName("latitude") var latitude: Long? = null,
+    @SerializedName("longitude") var longitude: Double? = null,
+    @SerializedName("latitude") var latitude: Double? = null,
     @SerializedName("price") var price: Double? = null,
     @SerializedName("title") var title: String? = null,
     @SerializedName("cupons") var cupons: List<Cupons>? = null

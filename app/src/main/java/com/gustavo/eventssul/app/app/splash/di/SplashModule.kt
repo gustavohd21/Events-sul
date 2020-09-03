@@ -1,7 +1,5 @@
 package com.gustavo.eventssul.app.app.splash.di
 
-import android.content.Context
-import com.gustavo.eventssul.MainActivity
 import com.gustavo.eventssul.app.app.di.ActivityScope
 import com.gustavo.eventssul.app.app.splash.SplashActivity
 import com.gustavo.eventssul.app.app.splash.SplashContract

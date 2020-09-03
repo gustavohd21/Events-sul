@@ -1,18 +1,26 @@
 package com.gustavo.eventssul.app.app.home
 
 import com.gustavo.eventssul.app.app.home.data.HomeRepository
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+import com.gustavo.eventssul.app.app.model.Events
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
-class HomeInteractor( val repository: HomeRepository,
-                     private val presenter: HomePresenterOutput
+class HomeInteractor( val repository: HomeRepository
 ) : HomeContract.Interactor {
-    override suspend fun getEvents() {
-        coroutineScope {
-            launch {
-                val events = repository.getEvents()
-                presenter.getEvenstResult(events)
-            }
-        }
+    private val compositeDisposable = CompositeDisposable()
+
+    override fun getEvents(onSuccess: (List<Events>) -> Unit, onError: (Throwable) -> Unit) {
+
+        val disposable = repository.getEvents()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSuccess(onSuccess)
+            .doOnError(onError)
+            .subscribe({ println("ok") }, {throwable -> println("error $throwable") })
+
+        compositeDisposable.add(disposable)
     }
+
+    fun dispose() = compositeDisposable.dispose()
 }

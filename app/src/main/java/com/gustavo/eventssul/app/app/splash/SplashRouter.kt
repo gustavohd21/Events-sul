@@ -1,16 +1,16 @@
 package com.gustavo.eventssul.app.app.splash
 
 import androidx.annotation.VisibleForTesting
-import com.gustavo.eventssul.MainActivity
+import com.gustavo.eventssul.app.app.home.HomeActivity
 
 
 class SplashRouter(private val activity: SplashActivity) : SplashContract.Router {
 
     @VisibleForTesting
-     val mainActivity = MainActivity()
+     val homeActivity = HomeActivity
 
     override fun openMain() {
-        mainActivity.launch(activity)
+        homeActivity.launch(activity)
         activity.finish()
     }
 }

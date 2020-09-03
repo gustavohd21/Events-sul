@@ -1,5 +1,13 @@
 package com.gustavo.eventssul.app.app.home
 
-class HomeRouter(private val activity: HomeActivity) : HomeContract.Router {
+import com.gustavo.eventssul.app.app.model.Events
 
+class HomeRouter(private val activity: HomeActivity) : HomeContract.Router {
+    override fun finish() {
+        activity.finish()
+    }
+
+    override fun openEventDetails(event: Events) {
+       // DetailEventActivity.launch(activity, event)
+    }
 }

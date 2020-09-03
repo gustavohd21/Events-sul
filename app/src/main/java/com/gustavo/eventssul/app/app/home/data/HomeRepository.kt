@@ -10,18 +10,5 @@ import retrofit2.Response
 
 class HomeRepository(private val api: HomeApi) : HomeContract.Repository {
 
-    override fun getEvents(): List<Events>  {
-        val call = api.getEvents()
-
-        val request = call.execute()
-
-        if (request.isSuccessful) {
-            val events = request.body()
-            if (events != null) {
-                return events
-            }
-        }
-
-        return emptyList()
-    }
+    override fun getEvents(): Single<List<Events>> = api.getData()
 }

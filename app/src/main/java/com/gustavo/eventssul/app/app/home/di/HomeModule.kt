@@ -14,7 +14,7 @@ class HomeModule {
 
     @Provides
     @ActivityScope
-    fun api(retrofit: Retrofit): HomeApi = retrofit.newBuilder().baseUrl(" http://5b840ba5db24a100142dcd8c.mockapi.io/").build().create(HomeApi::class.java)
+    fun api(retrofit: Retrofit): HomeApi = retrofit.create(HomeApi::class.java)
 
     @Provides
     @ActivityScope
@@ -31,9 +31,5 @@ class HomeModule {
 
     @Provides
     @ActivityScope
-    fun presenterOutput(router: HomeContract.Router, view: HomeActivity) = HomePresenterOutput(router, view)
-
-    @Provides
-    @ActivityScope
-    fun interactor(repository: HomeRepository, presenterOutput: HomePresenterOutput) = HomeInteractor(repository,presenterOutput)
+    fun interactor(repository: HomeRepository) = HomeInteractor(repository)
 }
