@@ -2,4 +2,6 @@
     <string name="app_name">EventsSul</string>
     <string name="title_project">Events Sul</string>
     <string name="event_unavailable">Serviço indisponivel no momento</string>
+    <string name="share_button">Compartilhar</string>
+    <string name="check_in_button">Check in</string>
 </resources>
