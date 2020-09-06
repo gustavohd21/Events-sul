@@ -7,7 +7,6 @@ import com.gustavo.eventssul.app.app.home.data.HomeRepository
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import kotlin.coroutines.CoroutineContext
 
 @Module
 class HomeModule {
