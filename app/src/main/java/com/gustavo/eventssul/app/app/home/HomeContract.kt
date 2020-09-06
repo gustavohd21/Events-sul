@@ -8,7 +8,7 @@ interface HomeContract {
         fun showLoading()
         fun hideLoading()
         fun publishData(data: List<Events>)
-        fun showMessage(msg: String)
+        fun showMessageError()
     }
 
     interface Presenter {

@@ -36,7 +36,7 @@ class HomePresenter(private val router: HomeContract.Router, private val interac
 
     private fun onError(error: Throwable) {
         view?.hideLoading()
-        error.message?.let { view?.showMessage(it) }
+        error.message?.let { view?.showMessageError() }
     }
 
 }

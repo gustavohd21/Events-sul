@@ -1,5 +1,6 @@
 package com.gustavo.eventssul.app.app.home
 
+import com.gustavo.eventssul.app.app.detail.DetailActivity
 import com.gustavo.eventssul.app.app.model.Events
 
 class HomeRouter(private val activity: HomeActivity) : HomeContract.Router {
@@ -8,6 +9,6 @@ class HomeRouter(private val activity: HomeActivity) : HomeContract.Router {
     }
 
     override fun openEventDetails(event: Events) {
-       // DetailEventActivity.launch(activity, event)
+        DetailActivity.launch(activity, event)
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gustavo.eventssul.R
@@ -72,8 +71,8 @@ class HomeActivity : AppCompatActivity(), HomeContract.View {
         recyclerView.adapter = adapter
     }
 
-    override fun showMessage(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    override fun showMessageError() {
+        errorText.visibility = View.VISIBLE
     }
 
     private fun initView() {
