@@ -1,11 +1,13 @@
 package com.gustavo.eventssul.app.app.detail
 
 import android.content.Context
+import androidx.annotation.VisibleForTesting
 import com.gustavo.eventssul.app.app.model.Events
 
 class DetailPresenter(private val router: DetailContract.Router) : DetailContract.Presenter {
 
-    private var view: DetailContract.View? = null
+    @VisibleForTesting
+    var view: DetailContract.View? = null
 
     override fun bindView(view: DetailContract.View) {
         this.view = view
