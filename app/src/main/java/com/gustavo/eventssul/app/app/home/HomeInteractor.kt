@@ -1,5 +1,6 @@
 package com.gustavo.eventssul.app.app.home
 
+import androidx.annotation.VisibleForTesting
 import com.gustavo.eventssul.app.app.home.data.HomeRepository
 import com.gustavo.eventssul.app.app.model.Events
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -8,7 +9,8 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeInteractor( val repository: HomeRepository
 ) : HomeContract.Interactor {
-    private val compositeDisposable = CompositeDisposable()
+    @VisibleForTesting
+     val compositeDisposable = CompositeDisposable()
 
     override fun getEvents(onSuccess: (List<Events>) -> Unit, onError: (Throwable) -> Unit) {
 
@@ -22,5 +24,7 @@ class HomeInteractor( val repository: HomeRepository
         compositeDisposable.add(disposable)
     }
 
-    fun dispose() = compositeDisposable.dispose()
+    fun dispose() {
+        compositeDisposable.dispose()
+    }
 }

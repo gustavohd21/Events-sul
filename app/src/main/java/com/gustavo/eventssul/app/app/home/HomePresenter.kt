@@ -1,11 +1,13 @@
 package com.gustavo.eventssul.app.app.home
 
+import androidx.annotation.VisibleForTesting
 import com.gustavo.eventssul.app.app.model.Events
 
 class HomePresenter(private val router: HomeContract.Router, private val interactor: HomeInteractor) :
     HomeContract.Presenter {
 
-    private var view: HomeContract.View? = null
+    @VisibleForTesting
+     var view: HomeContract.View? = null
 
     override fun bindView(view: HomeContract.View) {
         this.view = view
