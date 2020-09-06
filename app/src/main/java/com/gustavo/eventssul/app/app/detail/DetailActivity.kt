@@ -123,14 +123,14 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         val viewInflated: View = LayoutInflater.from(this)
             .inflate(R.layout.check_in_layout,null, false)
 
-        val inputEmail = viewInflated.inputEmail
+        val inputEmail = viewInflated.inputEmail.toString()
 
-        val inputName = viewInflated.inputName
+        val inputName = viewInflated.inputName.toString()
 
         builder.setView(viewInflated)
 
         builder.setPositiveButton(R.string.send) { dialog, _ ->
-            presenter.checkInSendClicked(inputName.toString(),inputEmail.toString(), events)
+            presenter.checkInSendClicked(inputName,inputEmail, events)
             dialog.dismiss()
         }
 
