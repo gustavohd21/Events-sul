@@ -5,4 +5,13 @@
     <string name="share_button">Compartilhar</string>
     <string name="check_in_button">Check in</string>
     <string name="detail_title">Detalhe do evento</string>
+    <string name="email">Digite seu email</string>
+    <string name="name_hint">Digite seu Nome</string>
+    <string name="title_dialog">Check in Evento</string>
+    <string name="send">Enviar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error_dialog_title">Erro</string>
+    <string name="error_dialog_description">Erro ao processar o check in</string>
+    <string name="success_dialog_title">Sucesso</string>
+    <string name="success_dialog_description">O check in foi realizado com sucesso</string>
 </resources>
