@@ -4,4 +4,5 @@
     <string name="event_unavailable">Serviço indisponivel no momento</string>
     <string name="share_button">Compartilhar</string>
     <string name="check_in_button">Check in</string>
+    <string name="detail_title">Detalhe do evento</string>
 </resources>
