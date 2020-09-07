@@ -20,15 +20,4 @@ class HomeRouterTest {
         // then
         verify(view).finish()
     }
-
-    @Test
-    fun `openEventDetails() should open detail screen`() {
-        //give
-        val events = Events()
-        // when
-        router.openEventDetails(events)
-
-        // then
-        verify(view).finish()
-    }
 }
