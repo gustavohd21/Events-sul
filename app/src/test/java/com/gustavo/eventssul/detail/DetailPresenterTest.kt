@@ -2,6 +2,7 @@ package com.gustavo.eventssul.detail
 
 import android.content.Context
 import com.gustavo.eventssul.app.app.detail.DetailActivity
+import com.gustavo.eventssul.app.app.detail.DetailInteractor
 import com.gustavo.eventssul.app.app.detail.DetailPresenter
 import com.gustavo.eventssul.app.app.detail.DetailRouter
 import com.gustavo.eventssul.app.app.model.Events
@@ -13,7 +14,9 @@ class DetailPresenterTest {
 
     private var router = mock<DetailRouter>()
 
-    private val presenter = DetailPresenter(router)
+    private var interactor = mock<DetailInteractor>()
+
+    private val presenter = DetailPresenter(router, interactor)
     @Test
     fun `bindView() should get view`()   {
         //give
