@@ -74,10 +74,10 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         presenter.unbindView()
     }
 
-    override fun publishData(events: Events) {
+    override fun publishData(event: Events) {
         val geocoder = Geocoder(applicationContext)
         val addressList =
-            geocoder.getFromLocation(events.latitude, events.longitude,3)
+            geocoder.getFromLocation(event.latitude, event.longitude,3)
         var addressResult = ""
 
         if (addressList != null && addressList.size > 0) {
@@ -93,19 +93,19 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         }
 
         val formatter = SimpleDateFormat("dd/MM/yyyy")
-        val  date = formatter.format(events.date?.let { Date(it) })
+        val  date = formatter.format(event.date?.let { Date(it) })
 
         Picasso.get()
-            .load(events.image)
+            .load(event.image)
             .placeholder(R.drawable.image_empty)
             .error(R.drawable.image_empty)
             .into(imageDetail)
 
-        titleEvents.text = events.title
+        titleEvents.text = event.title
         adress.text = addressResult
-        price.text = "R$ ${events.price}"
+        price.text = "R$ ${event.price}"
         dateString.text = date
-        description.text = events.description
+        description.text = event.description
     }
 
     override fun showLoading() {
@@ -116,7 +116,7 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         progressBarDetail.visibility = View.GONE
     }
 
-    override fun openDialog(events: Events) {
+    override fun openDialog(event: Events) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.title_dialog)
 
@@ -130,7 +130,7 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         builder.setView(viewInflated)
 
         builder.setPositiveButton(R.string.send) { dialog, _ ->
-            presenter.checkInSendClicked(inputName,inputEmail, events)
+            presenter.checkInSendClicked(inputName,inputEmail, event)
             dialog.dismiss()
         }
 
