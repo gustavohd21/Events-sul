@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class CheckIn(
-    @SerializedName("eventId") var eventId: String? = null,
-    @SerializedName("name") var name: String? = null,
-    @SerializedName("email") var email: String? = null
+    @SerializedName("eventId") var eventId: String = "",
+    @SerializedName("name") var name: String = "",
+    @SerializedName("email") var email: String = ""
 ) : Parcelable

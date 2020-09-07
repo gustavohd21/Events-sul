@@ -2,9 +2,10 @@ package com.gustavo.eventssul.app.app.detail
 
 import android.content.Context
 import androidx.annotation.VisibleForTesting
+import com.gustavo.eventssul.app.app.detail.model.CheckIn
 import com.gustavo.eventssul.app.app.model.Events
 
-class DetailPresenter(private val router: DetailContract.Router) : DetailContract.Presenter {
+class DetailPresenter(private val router: DetailContract.Router,  private val interactor: DetailInteractor) : DetailContract.Presenter {
 
     @VisibleForTesting
     var view: DetailContract.View? = null
@@ -36,14 +37,16 @@ class DetailPresenter(private val router: DetailContract.Router) : DetailContrac
     }
 
     override fun checkInSendClicked(name:String, email: String, event: Events) {
-        TODO("Not yet implemented")
+        val checkIn = CheckIn(name, email,event.id)
+        interactor.sendcheckIn(checkIn,{
+            view?.hideLoading()
+            view?.openDialogSuccess()
+        }, this::onError)
     }
 
-    override fun checkInResult(result: Boolean) {
-        if (result) {
-            view?.openDialogSuccess()
-        } else {
-            view?.openDialogError()
-        }
+
+    private fun onError(error: Throwable) {
+        view?.hideLoading()
+        view?.openDialogError()
     }
 }

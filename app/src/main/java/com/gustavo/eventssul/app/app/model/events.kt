@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Events(
-    @SerializedName("id") var id: String? = null,
+    @SerializedName("id") var id: String = "",
     @SerializedName("people") var people: List<People>? = null,
     @SerializedName("date") var date: Long? = null,
     @SerializedName("description") var description: String? = null,

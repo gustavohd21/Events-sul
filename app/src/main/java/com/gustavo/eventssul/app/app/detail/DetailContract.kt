@@ -4,7 +4,6 @@ import android.content.Context
 import com.gustavo.eventssul.app.app.detail.model.CheckIn
 import com.gustavo.eventssul.app.app.model.Events
 import io.reactivex.Observable
-import io.reactivex.Single
 
 interface DetailContract {
     interface View {
@@ -36,7 +35,10 @@ interface DetailContract {
 
         fun checkInSendClicked(name:String, email: String, event: Events)
 
-        fun checkInResult(result: Boolean)
+    }
+
+    interface Interactor {
+        fun sendcheckIn(checkIn: CheckIn, onSuccess: () -> Unit, onError: (Throwable) -> Unit)
     }
 
     interface Router {
