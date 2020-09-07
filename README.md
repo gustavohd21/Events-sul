@@ -2,6 +2,9 @@
 
 1. Events Sul é um app cujo pode-se verificar uma lista de eventos disponivel e realizar um check in no evento assim como compartilhar o mesmo. Dentro deste repositório se encontra um APK do aplicativo para instalação direta do app.
 
+# Screenshot
+<img src="/screenshot/splash.png" width = "300" height="300px"/> <img src="/screenshot/main_error.png" width = "300" height="300px"/> 
+
 ## Arquitetura VIPER
 O projeto foi estruturado usando a arquitetura VIPER cujo temos a separação entre a apresentação dos dados, fluxo de transição e chamadas a APIs externas. A escolha pela arquitetura se deu pela possibilidade de uma maior separação entre os modulos da aplicação o que permite implementar novas funcionalidades sem realizar alterações nos modulos já implementados onde somente na camada Router pode haver alguma alteração para chamada de nova rota. Além da possiblidade de uma maior separação de modulos a escolha foi influenciada pela preve experiencia com o uso dessa arquitetura.
 
